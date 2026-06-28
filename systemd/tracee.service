@@ -1,0 +1,13 @@
+[Unit]
+Description=Tracee sensor for Trace Lens
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/trace-lens
+ExecStart=/usr/local/bin/tracee --policy /opt/trace-lens/configs/tracee-policy.yaml --output json --output option:parse-arguments
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,7 @@
+adapters:
+  generic-webhook:
+    vendor: generic
+    source_kind: edr
+    event_type_field: event_name
+    timestamp_field: observed_at
+    process_guid_field: process_guid

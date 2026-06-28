@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>溯源透镜看板</title>
+  <link rel="stylesheet" href="/static/app.css">
+  <script src="/static/theme.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">溯</div>
+        <div>
+          <div class="brand-title">溯源透镜</div>
+          <div class="brand-subtitle">主机溯源调查</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a class="nav-link active" href="/">事件队列</a>
+        <a class="nav-link" href="/ring0">内核态</a>
+        <a class="nav-link" href="/edr">终端检测</a>
+      </nav>
+      <button id="themeToggle" class="button theme-toggle" type="button">切换为白色背景</button>
+    </aside>
+
+    <main class="content">
+      <header class="page-header">
+        <div>
+          <h1>事件队列</h1>
+          <p>聚合进程血缘、终端检测证据和内核态上下文。</p>
+        </div>
+        <button id="refreshButton" class="button">刷新</button>
+      </header>
+
+      <section class="summary-grid">
+        <div class="metric">
+          <div class="metric-label">打开事件</div>
+          <div id="incidentCount" class="metric-value">-</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">主机信任</div>
+          <div id="hostTrustLevel" class="metric-value">-</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">内核态发现</div>
+          <div id="ring0Count" class="metric-value">-</div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>事件列表</h2>
+          <div class="toolbar">
+            <select id="severityFilter" class="select">
+              <option value="all">全部严重度</option>
+              <option value="8">8+</option>
+              <option value="5">5+</option>
+            </select>
+            <select id="trustFilter" class="select">
+              <option value="all">全部信任等级</option>
+              <option value="L3">三级信任</option>
+              <option value="L2">二级以上信任</option>
+              <option value="L1">一级以上信任</option>
+            </select>
+            <select id="sortMode" class="select">
+              <option value="time">最新优先</option>
+              <option value="severity">严重度优先</option>
+            </select>
+            <div id="lastUpdated" class="panel-meta">-</div>
+          </div>
+        </div>
+        <div id="incidentList" class="incident-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/static/dashboard.js"></script>
+</body>
+</html>

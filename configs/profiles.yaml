@@ -1,0 +1,25 @@
+profiles:
+  light:
+    tracee_policy: configs/tracee-policy.yaml
+    ring0_interval_seconds: 60
+    mirror_trap_enabled: true
+    ghost_port_enabled: false
+    ghost_port_list:
+      - 8081
+      - 31337
+  full:
+    tracee_policy: configs/tracee-policy.yaml
+    ring0_interval_seconds: 30
+    mirror_trap_enabled: true
+    ghost_port_enabled: false
+    ghost_port_list:
+      - 8081
+      - 31337
+  deep:
+    tracee_policy: configs/tracee-policy.yaml
+    ring0_interval_seconds: 15
+    mirror_trap_enabled: true
+    ghost_port_enabled: false
+    ghost_port_list:
+      - 8081
+      - 31337

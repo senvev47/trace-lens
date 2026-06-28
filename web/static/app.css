@@ -1,0 +1,379 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap');
+
+:root {
+  color-scheme: dark;
+  --bg: #1c2330;
+  --panel: #2a3443;
+  --panel-2: #344155;
+  --border: #56657c;
+  --text: #f8fbff;
+  --muted: #d5dfeb;
+  --accent: #57ddc2;
+  --warn: #ffd77a;
+  --critical: #ff9191;
+  --sidebar: #242d3a;
+  --hover: #3a475b;
+  --strong: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.18);
+  --header-border: rgba(255, 255, 255, 0.08);
+  --control-bg: rgba(255, 255, 255, 0.05);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f4f7fb;
+  --panel: #ffffff;
+  --panel-2: #eef3f8;
+  --border: #c8d3df;
+  --text: #172033;
+  --muted: #4d5c70;
+  --accent: #087f6d;
+  --warn: #8a5a00;
+  --critical: #bd2f2f;
+  --sidebar: #eaf0f6;
+  --hover: #dce6f0;
+  --strong: #0f172a;
+  --shadow: rgba(22, 34, 51, 0.10);
+  --header-border: rgba(21, 32, 51, 0.12);
+  --control-bg: rgba(15, 23, 42, 0.04);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Sans SC", "Noto Sans CJK SC", "Microsoft YaHei", "PingFang SC", "Source Han Sans SC", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+}
+
+.sidebar {
+  border-right: 1px solid var(--border);
+  padding: 20px 16px;
+  background: var(--sidebar);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.brand-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  background: var(--accent);
+  color: #08110f;
+  font-weight: 700;
+}
+
+.brand-title {
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.brand-subtitle,
+.panel-meta,
+.metric-label,
+.back-link,
+.page-header p {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.nav {
+  display: grid;
+  gap: 8px;
+}
+
+.theme-toggle {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.nav-link {
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: var(--muted);
+  background: var(--control-bg);
+  font-weight: 500;
+}
+
+.nav-link.active {
+  background: var(--panel-2);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.nav-link:hover {
+  background: var(--hover);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.content {
+  padding: 24px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.page-header h1,
+.panel-header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 650;
+}
+
+.page-header p {
+  margin: 6px 0 0;
+}
+
+.button {
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.button:hover {
+  background: var(--hover);
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.select {
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-weight: 500;
+}
+
+.summary-grid,
+.detail-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.summary-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 20px;
+}
+
+.detail-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.metric,
+.panel,
+.incident-item,
+.stack-item {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: 0 10px 28px var(--shadow);
+}
+
+.metric {
+  padding: 16px;
+}
+
+.metric-value {
+  margin-top: 8px;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--strong);
+}
+
+.panel {
+  padding: 16px;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--header-border);
+}
+
+.incident-list,
+.stack {
+  display: grid;
+  gap: 12px;
+}
+
+.incident-item,
+.stack-item {
+  padding: 14px;
+}
+
+.incident-item {
+  display: grid;
+  gap: 10px;
+}
+
+.incident-row,
+.stack-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+}
+
+.incident-title {
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  color: #edf4ff;
+  font-weight: 600;
+}
+
+.pill.severity-high {
+  color: #fff7f7;
+  border-color: #a64a4a;
+  background: #5a2b2b;
+}
+
+.pill.severity-medium {
+  color: #fff8e7;
+  border-color: #a9842f;
+  background: #5b4419;
+}
+
+.pill.trust-low {
+  color: #fff1f1;
+  border-color: #ad4b4b;
+  background: #5a2727;
+}
+
+.pill.label-edr {
+  color: #ecfffb;
+  border-color: #3d8d7e;
+  background: #1d4f47;
+}
+
+.pill.label-file {
+  color: #fff6e7;
+  border-color: #9a7338;
+  background: #513819;
+}
+
+.pill.label-network {
+  color: #eef6ff;
+  border-color: #4a7eb3;
+  background: #223a59;
+}
+
+.pill.label-lateral {
+  color: #fff0f6;
+  border-color: #a85179;
+  background: #55253b;
+}
+
+:root[data-theme="light"] .pill {
+  color: #243044;
+}
+
+:root[data-theme="light"] .pill.severity-high,
+:root[data-theme="light"] .pill.trust-low {
+  color: #8f1d1d;
+  border-color: #e1a4a4;
+  background: #fff1f1;
+}
+
+:root[data-theme="light"] .pill.severity-medium,
+:root[data-theme="light"] .pill.label-file {
+  color: #775008;
+  border-color: #e2c27a;
+  background: #fff7df;
+}
+
+:root[data-theme="light"] .pill.label-edr {
+  color: #066556;
+  border-color: #8fcfc2;
+  background: #e6faf5;
+}
+
+:root[data-theme="light"] .pill.label-network {
+  color: #174f86;
+  border-color: #9cc2e7;
+  background: #eaf4ff;
+}
+
+:root[data-theme="light"] .pill.label-lateral {
+  color: #8a2d58;
+  border-color: #dda5c1;
+  background: #fff0f7;
+}
+
+.empty {
+  color: var(--muted);
+  padding: 10px 0;
+}
+
+pre {
+  color: var(--text);
+}
+
+@media (max-width: 1080px) {
+  .shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .summary-grid,
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+}

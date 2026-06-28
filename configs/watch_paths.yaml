@@ -1,0 +1,10 @@
+watch_paths:
+  sensitive:
+    - /etc/shadow
+    - /root/.ssh
+    - /etc/cron.d
+    - /etc/systemd/system
+  suspicious_write_paths:
+    - /tmp
+    - /dev/shm
+    - /var/tmp

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>溯源透镜文件查询</title>
+  <link rel="stylesheet" href="/static/app.css">
+  <script src="/static/theme.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">溯</div>
+        <div>
+          <div class="brand-title">溯源透镜</div>
+          <div class="brand-subtitle">主机溯源调查</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a class="nav-link" href="/">事件队列</a>
+        <a class="nav-link" href="/net">网络</a>
+        <a class="nav-link active" href="/file">文件</a>
+      </nav>
+      <button id="themeToggle" class="button theme-toggle" type="button">切换为白色背景</button>
+    </aside>
+    <main class="content">
+      <header class="page-header">
+        <div>
+          <h1>文件查询</h1>
+          <p>按路径查询采集到的文件事件。</p>
+        </div>
+      </header>
+      <section class="panel">
+        <div class="toolbar">
+          <input id="filePathInput" class="select" value="/etc/shadow">
+          <button id="fileSearchButton" class="button">查询</button>
+        </div>
+        <div style="margin-top: 16px;">
+          <h2>已观测文件事件</h2>
+          <div id="fileLookupList" class="stack"></div>
+        </div>
+        <div style="margin-top: 24px;">
+          <h2>传播链</h2>
+          <div id="fileChainList" class="stack"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="/static/file.js"></script>
+</body>
+</html>

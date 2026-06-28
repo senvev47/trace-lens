@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>溯源透镜事件详情</title>
+  <link rel="stylesheet" href="/static/app.css">
+  <script src="/static/theme.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">溯</div>
+        <div>
+          <div class="brand-title">溯源透镜</div>
+          <div class="brand-subtitle">主机溯源调查</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a class="nav-link" href="/">事件队列</a>
+        <a class="nav-link active" href="#">详情</a>
+      </nav>
+      <button id="themeToggle" class="button theme-toggle" type="button">切换为白色背景</button>
+    </aside>
+
+    <main class="content">
+      <header class="page-header">
+        <div>
+          <a class="back-link" href="/">返回事件队列</a>
+          <h1 id="incidentTitle">事件详情</h1>
+          <p id="incidentSummary">正在加载...</p>
+        </div>
+      </header>
+
+      <section class="summary-grid">
+        <div class="metric">
+          <div class="metric-label">严重度</div>
+          <div id="severityValue" class="metric-value">-</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">置信度</div>
+          <div id="confidenceValue" class="metric-value">-</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">主机信任</div>
+          <div id="detailHostTrustLevel" class="metric-value">-</div>
+        </div>
+      </section>
+
+      <section class="detail-grid">
+        <section class="panel">
+          <div class="panel-header">
+            <h2>进程</h2>
+          </div>
+          <div id="processCard" class="stack"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>祖先进程</h2>
+          </div>
+          <div id="ancestryList" class="stack"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>后代进程</h2>
+          </div>
+          <div id="descendantList" class="stack"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>终端检测证据</h2>
+          </div>
+          <div id="edrEvidenceList" class="stack"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>文件活动</h2>
+          </div>
+          <div id="fileActivityList" class="stack"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>网络活动</h2>
+          </div>
+          <div id="networkActivityList" class="stack"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>网络目标</h2>
+          </div>
+          <div id="networkTargetList" class="stack"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>时间线</h2>
+          </div>
+          <div id="timelineList" class="stack"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>进程图</h2>
+          </div>
+          <pre id="processGraph" class="stack-item"></pre>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script src="/static/incident.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+[Unit]
+Description=Trace Lens blue team tracing service
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/trace-lens
+ExecStart=/opt/trace-lens/target/release/trace-lens serve --listen 127.0.0.1:8080 --db-path /opt/trace-lens/db/trace-lens.db
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

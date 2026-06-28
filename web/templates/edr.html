@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>溯源透镜终端检测接入</title>
+  <link rel="stylesheet" href="/static/app.css">
+  <script src="/static/theme.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">溯</div>
+        <div>
+          <div class="brand-title">溯源透镜</div>
+          <div class="brand-subtitle">主机溯源调查</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a class="nav-link" href="/">事件队列</a>
+        <a class="nav-link" href="/ring0">内核态</a>
+        <a class="nav-link active" href="/edr">终端检测</a>
+      </nav>
+      <button id="themeToggle" class="button theme-toggle" type="button">切换为白色背景</button>
+    </aside>
+
+    <main class="content">
+      <header class="page-header">
+        <div>
+          <h1>终端检测接入</h1>
+          <p>查看适配器、标准化事件和标准化告警。</p>
+        </div>
+      </header>
+
+      <section class="summary-grid">
+        <div class="metric">
+          <div class="metric-label">适配器</div>
+          <div id="adapterCount" class="metric-value">-</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">事件</div>
+          <div id="edrEventCount" class="metric-value">-</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">告警</div>
+          <div id="edrAlertCount" class="metric-value">-</div>
+        </div>
+      </section>
+
+      <section class="detail-grid">
+        <section class="panel">
+          <div class="panel-header">
+            <h2>适配器</h2>
+          </div>
+          <div id="adapterList" class="stack"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>最近告警</h2>
+          </div>
+          <div id="alertList" class="stack"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>最近事件</h2>
+          </div>
+          <div id="eventList" class="stack"></div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script src="/static/edr.js"></script>
+</body>
+</html>

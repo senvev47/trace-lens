@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>溯源透镜内核态状态</title>
+  <link rel="stylesheet" href="/static/app.css">
+  <script src="/static/theme.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">溯</div>
+        <div>
+          <div class="brand-title">溯源透镜</div>
+          <div class="brand-subtitle">主机溯源调查</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a class="nav-link" href="/">事件队列</a>
+        <a class="nav-link active" href="/ring0">内核态</a>
+        <a class="nav-link" href="/edr">终端检测</a>
+      </nav>
+      <button id="themeToggle" class="button theme-toggle" type="button">切换为白色背景</button>
+    </aside>
+
+    <main class="content">
+      <header class="page-header">
+        <div>
+          <h1>内核态状态</h1>
+          <p>跨视图完整性检查与内核探针异常发现。</p>
+        </div>
+      </header>
+
+      <section class="summary-grid">
+        <div class="metric">
+          <div class="metric-label">主机信任</div>
+          <div id="ring0TrustLevel" class="metric-value">-</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">发现数量</div>
+          <div id="ring0FindingCount" class="metric-value">-</div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>发现列表</h2>
+        </div>
+        <div id="ring0FindingList" class="stack"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/static/ring0.js"></script>
+</body>
+</html>
