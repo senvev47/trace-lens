@@ -238,3 +238,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 Third-party tools used by Trace Lens have their own licenses:
 - Aqua Tracee: [Apache License 2.0](https://github.com/aquasecurity/tracee/blob/main/LICENSE)
+
+---
+
+<sub>Sponsored by [vsllm.com](https://vsllm.com)</sub>
